@@ -1,0 +1,282 @@
+@import "constants.scss";
+@import "common.scss";
+
+// Widget style
+.hp__widget_wrapper {
+  & * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    font-size: $fontsize;
+  }
+  .widget__overlay {
+    width: 100%;
+    height: 100%;
+    background-color: $gray;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s ease;
+    z-index: 900;
+    border: none;
+  }
+  .widget__overlay_show {
+    visibility: visible;
+    opacity: 1;
+  }
+  .widget__iframe {
+    width: 25em;
+    height: 37.5em;
+    z-index: 900;
+    background-color: $white;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border-radius: 0.635em 0.625em;
+    visibility: hidden;
+    pointer-events: none;
+    transition: 0.2s;
+    transform: scale(0);
+    transform-origin: right bottom;
+    margin-bottom: 4.25em;
+    margin-right: 4.25em;
+  }
+  .widget__iframe_show {
+    pointer-events: auto;
+    visibility: visible;
+    transform: scale(1);
+  }
+  .widget__wrapper li {
+    position: absolute;
+    width: 13.1em;
+    height: 13.1em;
+    transform-origin: 100% 100%;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    transition: .3s ease;
+    background-color: $white;
+    .menu__button {
+      display: block;
+      height: 100%;
+      width: 100%;
+      border: none;
+      background-color: transparent;
+      transition: 0.2s;
+      &:hover {
+        cursor: pointer;
+      }
+      &:-focus {
+        outline: none;
+      }
+      &:hover .icon-hp-cloud-1 {
+        font-size: 2em;
+      }
+      &:hover .icon-hp-phone {
+        font-size: 2.2em;
+      }
+      &:hover .icon-hp-commenting-o {
+        font-size: 1.9em;
+      }
+      .icon-hp-cloud-1 {
+        position: absolute;
+        bottom: 0.7em;
+        left: 1.2em;
+        font-size: 1.9em;
+        color: $gray;
+        transition: 0.1s;
+        transform: rotate(-68deg);
+      }
+      .icon-hp-phone {
+        position: absolute;
+        top: 1.7em;
+        left: 1.8em;
+        font-size: 2.1em;
+        color: $white;
+        transition: 0.1s;
+        transform: rotate(55deg);
+      }
+      .icon-hp-commenting-o {
+        position: absolute;
+        top: 1.6em;
+        right: 0.6em;
+        font-size: 1.8em;
+        color: $gray;
+        transition: 0.1s;
+        transform: rotate(60deg);
+      }
+    }
+  }
+  .hp__widget {
+    width: 11.875em;
+    height: 11.875em;
+    overflow: hidden;
+    position: fixed;
+    z-index: 910;
+    bottom: 0;
+    right: 0;
+    border-radius: 100% 0 0 0;
+    transform: scale(0.1);
+    pointer-events: none;
+    transition: all .3s ease;
+    box-shadow: 0.4375em 0.8125em 1.875em 0px $lightgray;
+    margin-right: -6.25em;
+    margin-top: -6.25em;
+    & li:nth-child(1) {
+      transform: rotate(23deg);
+      z-index: 950;
+    }
+    & li:nth-child(2) {
+      transform: rotate(88deg);
+      z-index: 910;
+      background-color: $red;
+      margin-bottom: 2.3125em;
+      margin-right: -2.4375em;
+    }
+    & li:nth-child(3) {
+      transform: rotate(153deg);
+      z-index: 950;
+    }
+  }
+  .widget__open {
+    pointer-events: auto;
+    transform: scale(1);
+    margin-right: 0;
+    margin-top: 0;
+    & li:nth-child(1) {
+      transform: rotate(-60deg);
+      z-index: 950;
+    }
+    & li:nth-child(2) {
+      transform: rotate(-6deg);
+      z-index: 910;
+      background-color: $red;
+      margin-bottom: 2.3125em;
+      margin-right: -2.4375em;
+    }
+    & li:nth-child(3) {
+      transform: rotate(67deg);
+      z-index: 950;
+    }
+  }
+  .widget__button {
+    border: none;
+    background: none;
+    text-align: center;
+    height: 6.25em;
+    width: 6.25em;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    border-radius: 100% 0 0 0;
+    cursor: pointer;
+    z-index: 950;
+    outline: none;
+    background-color: $blue;
+    .icon-hp-cancel {
+      position: absolute;
+      top: 1.6em;
+      right: 0.6em;
+      font-size: 1.8em;
+      color: $white;
+      transition: 0.3s;
+    }
+    .icon-hp-menu {
+      position: absolute;
+      top: 2em;
+      right: 0.6em;
+      font-size: 1.6em;
+      color: $white;
+      transition: 0.3s;
+    }
+    .needhelp {
+      position: absolute;
+      top: 0;
+      right: 0;
+      visibility: hidden;
+      transition: 0.2s;
+      transform: scale(0);
+      width: 10.875em;
+      height: 3.6875em;
+      text-align: center;
+      line-height: 3.6875em;
+      font-size: 1.125em;
+      font-family: $base-font;
+      font-weight: normal;
+      background-color: $white;
+      border-radius: 0.625em;
+      margin-right: 6.25em;
+      box-shadow: 2px 2px 10px $lightgray;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 40%;
+        right: -1.0625em;
+        border: 0.4375em solid transparent;
+        border-left: 0.625em solid $white;
+        display: block;
+        width: 0;
+        height: 0;
+      }
+    }
+    .message {
+      position: absolute;
+      color: $white;
+      width: 1.35em;
+      height: 1.35em;
+      padding: 0.115em;
+      box-sizing: border-box;
+      border-radius: 1.35em;
+      background-color: $red;
+      left: 0.625em;
+      bottom: 0.125em;
+      font-size: 0.875em;
+      z-index: 960;
+    }
+    &:hover .icon-hp-cancel {
+      transform: rotate(20deg);
+    }
+    &:hover .needhelp {
+      visibility: visible;
+      transform: scale(1);
+      transform-origin: top right;
+    }
+    .widget__logo {
+      top: 0.7em;
+      right: -0.7em;
+      transition: 0.3s;
+      width: 2.8em;
+      height: 2.8em;
+      &:hover {
+        transform: rotate(20deg);
+      }
+    }
+  }
+  .widget__button_open {
+    &:hover .needhelp {
+      visibility: hidden;
+      transform: scale(0);
+    }
+  }
+  .widget__button_message {
+    animation-name: spin;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier();
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

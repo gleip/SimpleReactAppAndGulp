@@ -1,0 +1,47 @@
+// fonts
+@font-face {
+  font-family: 'hp-widget-font';
+  src: url('/font/hp-widget-font.eot?ed0a6v');
+  src: 
+    url('/font/hp-widget-font.eot?ed0a6v#iefix') format('embedded-opentype'), 
+    url('/font/hp-widget-font.ttf?ed0a6v') format('truetype'),
+    url('/font/hp-widget-font.woff?ed0a6v') format('woff'),
+    url('/font/hp-widget-font.svg?ed0a6v#hp-widget-font') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'hp-widget-font' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-hp-menu:before {
+  content: "\e900";
+}
+
+.icon-hp-cancel:before {
+  content: "\e901";
+}
+
+.icon-hp-cloud-1:before {
+  content: "\e902";
+}
+
+.icon-hp-phone:before {
+  content: "\e903";
+}
+
+.icon-hp-commenting-o:before {
+  content: "\e904";
+}

@@ -1,0 +1,15 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+before_script:
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD"
+
+build:
+  stage: build
+  variables:
+    CI_REGISTRY_IMAGE: "<%= dockerTag %>"
+  script:
+    - docker build --pull -t "$CI_REGISTRY_IMAGE" .
+    - docker push "$CI_REGISTRY_IMAGE"
