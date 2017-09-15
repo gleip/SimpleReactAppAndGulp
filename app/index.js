@@ -78,6 +78,16 @@ module.exports = class extends Generator {
       this.templatePath('index.js'),
       this.destinationPath('index.js')
     )
+    // public/js
+    this.fs.copy(
+      this.templatePath('public/js/bundle.js'),
+      this.destinationPath('public/js/bundle.js')
+    )
+    // public/css
+    this.fs.copy(
+      this.templatePath('public/css/main.css'),
+      this.destinationPath('public/css/main.css')
+    )
     // rotes
     this.fs.copy(
       this.templatePath('routes/index.js'),
