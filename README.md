@@ -136,3 +136,8 @@ npm run build
 ```
 npm run buildContainer
 ```
+
+## Run test
+```
+npm test
+```

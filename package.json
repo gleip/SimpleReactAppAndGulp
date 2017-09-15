@@ -1,7 +1,7 @@
 {
   "name": "generator-simple-reactapp-gulp",
   "version": "0.1.3",
-  "description": "Simple generator for creating ReactApp",
+  "description": "Simple generator for creating ReactApp (React, Redux, Gulp, Hapi, Docker, GitLab-CI)",
   "repository": "git://github.com/gleip/SimpleReactAppAndGulp",
   "files": [
     "app"
