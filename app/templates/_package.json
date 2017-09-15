@@ -40,22 +40,22 @@
     "react-test-renderer": "^15.6.1",
     "require-dir": "^0.3.2",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0",
-    "classnames": "^2.2.5",
-    "history": "^4.7.2",
-    "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"<% if (redux) { %>,
-    "react-redux": "^5.0.6",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
-    <% } %>
+    "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
     "handlebars": "^4.0.10",
     "hapi": "^16.6.0",
     "inert": "^4.2.1",
     "pino": "^4.7.1",
-    "vision": "^4.1.1"
+    "vision": "^4.1.1",
+    "classnames": "^2.2.5",
+    "history": "^4.7.2",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"<% if (redux){ %>,
+      "react-redux": "^5.0.6",
+      "redux": "^3.7.2",
+      "redux-thunk": "^2.2.0"
+    <% } %>
   }
 }

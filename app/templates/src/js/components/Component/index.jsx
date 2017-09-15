@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import className from 'classnames';
 
-const Component = ({}) => (
+const Component = () => (
   <div>
     <h1>Work! :)</h1>
   </div>
