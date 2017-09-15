@@ -1,6 +1,6 @@
 {
   "name": "generator-simple-reactapp-gulp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Simple generator for creating ReactApp",
   "repository": "git://github.com/gleip/SimpleReactAppAndGulp",
   "files": [

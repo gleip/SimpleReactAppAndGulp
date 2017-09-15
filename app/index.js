@@ -60,10 +60,6 @@ module.exports = class extends Generator {
       this.templatePath('.eslintrc'),
       this.destinationPath('.eslintrc')
     )
-    this.fs.copy(
-      this.templatePath('.gitignore'),
-      this.destinationPath('.gitignore')
-    )
     if (this.param.docker) {
       this.fs.copy(
         this.templatePath('Dockerfile'),
