@@ -12,6 +12,10 @@ module.exports = class extends Generator {
       message: 'Author',
     }, {
       type: 'confirm',
+      name: 'ts',
+      message: 'Use typescript?',
+    }, {
+      type: 'confirm',
       name: 'redux',
       message: 'Use redux?',
     }, {
@@ -32,6 +36,7 @@ module.exports = class extends Generator {
       this.param = {};
       this.param.project = answer.project;
       this.param.author = answer.author;
+      this.param.ts = answer.ts;
       this.param.dockerTag = answer.dockerTag;
       this.param.redux = answer.redux;
       this.param.docker = answer.docker;
@@ -50,6 +55,16 @@ module.exports = class extends Generator {
         this.templatePath('_.gitlab-ci.yml'),
         this.destinationPath('.gitlab-ci.yml'),
         this.param
+      )
+    }
+    if (this.param.ts) {
+      this.fs.copy(
+        this.templatePath('tsconfig.json'),
+        this.destinationPath('tsconfig.json')
+      )
+      this.fs.copy(
+        this.templatePath('tslint.json'),
+        this.destinationPath('tslint.json')
       )
     }
     this.fs.copy(
@@ -197,8 +212,8 @@ module.exports = class extends Generator {
       this.templatePath('tasks/build/img.prod.js'),
       this.destinationPath('tasks/build/img.prod.js')
     )
-    this.fs.copy(
-      this.templatePath('tasks/build/js.prod.js'),
+    this.fs.copyTpl(
+      this.templatePath('tasks/build/_js.prod.js'),
       this.destinationPath('tasks/build/js.prod.js')
     )
     // tasks/common
@@ -227,8 +242,8 @@ module.exports = class extends Generator {
       this.templatePath('tasks/dev/img.js'),
       this.destinationPath('tasks/dev/img.js')
     )
-    this.fs.copy(
-      this.templatePath('tasks/dev/js.js'),
+    this.fs.copyTpl(
+      this.templatePath('tasks/dev/_js.js'),
       this.destinationPath('tasks/dev/js.js')
     )
     // tasks/settings

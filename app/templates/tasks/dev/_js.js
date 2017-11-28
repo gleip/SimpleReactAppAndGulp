@@ -4,9 +4,9 @@ import babelify from 'babelify';
 import browserify from 'browserify';
 import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
-import uglify from 'gulp-uglify';
 import sourcemaps from 'gulp-sourcemaps';
 import settings from './../settings';
+<% if (ts) { %>import tsify from 'tsify'; <% } %>
 
 export default gulp.task('js', () => (
   browserify({
@@ -14,6 +14,7 @@ export default gulp.task('js', () => (
     extensions: ['.jsx', '.js'],
     debug: true,
   })
+  <% if (ts) { %>.plugin(tsify)<% } %>
   .transform(babelify, {
     plugins: ['transform-class-properties', 'transform-async-to-generator'],
   })
@@ -26,7 +27,6 @@ export default gulp.task('js', () => (
   .pipe(source(settings.js.buildFileName))
   .pipe(buffer())
   .pipe(sourcemaps.init({ loadMaps: true }))
-  // .pipe(uglify())
   .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(settings.js.buildDir))
 ));

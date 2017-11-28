@@ -6,7 +6,7 @@ import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import uglify from 'gulp-uglify';
 import envify from 'envify';
-
+<% if (ts) { %>import tsify from 'tsify'; <% } %>
 import settings from './../settings';
 
 export default gulp.task('js.prod', () => (
@@ -18,6 +18,7 @@ export default gulp.task('js.prod', () => (
     global: true,
     NODE_ENV: 'production',
   })
+  <% if (ts) { %>.plugin(tsify)<% } %>
   .plugin('bundle-collapser/plugin')
   .transform(babelify, {
     plugins: ['transform-class-properties', 'transform-async-to-generator'],

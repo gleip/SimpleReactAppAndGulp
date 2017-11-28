@@ -40,9 +40,19 @@
     "react-test-renderer": "^15.6.1",
     "require-dir": "^0.3.2",
     "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-source-stream": "^1.1.0"<% if (ts) { %>,
+    "tsify": "^3.0.3",
+    "tslint": "^5.7.0",
+    "tslint-config-airbnb": "^5.3.0",
+    "typescript": "^2.5.2"
+    <% } %>
   },
   "dependencies": {
+    <% if (ts) { %>
+    "@types/react": "^16.0.5",
+    "@types/react-dom": "^15.5.4",
+    "@types/react-redux": "^5.0.8",
+    <% } %>
     "handlebars": "^4.0.10",
     "hapi": "^16.6.0",
     "inert": "^4.2.1",
